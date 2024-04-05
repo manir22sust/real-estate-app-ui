@@ -1,25 +1,26 @@
 import { useState } from "react";
 import "./navbar.scss";
+import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav>
       <div className="left">
-        <a href="" className="logo">
+        <NavLink to="/" className="logo">
           <img src="/assets/logo.png" alt="" />
           <span>Real Estate</span>
-        </a>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Contact</a>
-        <a href="">Agents</a>
+        </NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/agents">Agents</NavLink>
       </div>
       <div className="right">
-        <a href="">Sign in</a>
-        <a href="" className="register">
+        <NavLink to="/login">Sign in</NavLink>
+        <NavLink to="/register" className="register">
           Sign up
-        </a>
+        </NavLink>
         <div className="menuIcon">
           <img
             src="/assets/menu.png"
@@ -28,12 +29,12 @@ export const Navbar = () => {
           />
         </div>
         <div className={open ? "menu active" : "menu"}>
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Contact</a>
-          <a href="">Agents</a>
-          <a href="">Sign in</a>
-          <a href="">Sign up</a>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/agents">Agents</NavLink>
+          <NavLink to="/login">Sign in</NavLink>
+          <NavLink to="/register">Sign up</NavLink>
         </div>
       </div>
     </nav>
