@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./navbar.scss";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const user = true;
   return (
     <nav>
       <div className="left">
@@ -17,10 +19,23 @@ export const Navbar = () => {
         <NavLink to="/agents">Agents</NavLink>
       </div>
       <div className="right">
-        <NavLink to="/login">Sign in</NavLink>
-        <NavLink to="/register" className="register">
-          Sign up
-        </NavLink>
+        {user ? (
+          <div className="user">
+            <img src="/assets/profile.jpg" alt="" />
+            <span> John Doe</span>
+            <Link to="/profile" className="profile">
+              <div className="notification">3</div>
+              <span> Profile</span>
+            </Link>
+          </div>
+        ) : (
+          <>
+            <NavLink to="/login">Sign in</NavLink>
+            <NavLink to="/register" className="register">
+              Sign up
+            </NavLink>{" "}
+          </>
+        )}
         <div className="menuIcon">
           <img
             src="/assets/menu.png"
